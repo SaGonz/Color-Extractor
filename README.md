@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Color Extractor is a web app with the purpose of extracting an image's dominant color after upload. It's bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

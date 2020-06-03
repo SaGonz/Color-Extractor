@@ -16,7 +16,7 @@ function App() {
         <h1> Color Extractor</h1>
       </header>
       <div className="App-body">
-        <div className="image-field">Upload image <ImageUpload/></div>
+        <div className="image-field"><ImageUpload/></div>
         <div className="color-info">Fancy dandy image details</div>
       </div>
     </div>
