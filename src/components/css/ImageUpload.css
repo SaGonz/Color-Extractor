@@ -16,6 +16,10 @@
     display: inline-block;
     border: 0.1rem  rgb(211, 211, 211);
   }
+  .Image-container>p {
+    margin-top: 30vh;
+    font-size: larger;
+  }
 
   .Image-file-input {
       display: none;

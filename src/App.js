@@ -1,13 +1,24 @@
-import React, { useEffect } from "react";
-import logo from './logo.svg';
+import React, { useEffect, useState } from "react";
+import logo from './color-picker.svg';
 import './App.css';
 import ImageUpload from './components/ImageUpload';
+import ImageDetails from './components/ImageDetails';
 
 function App() {
+
+  const [imgProperties, setImgProperties ] = useState(null)
 
   useEffect(() =>{
     document.title = "Color Extractor"
   })
+  //When called, set variable imgProperties
+  const callBackImageProperties = (imgProps) => {
+    setImgProperties(imgProps)
+    console.log(imgProps)
+  }
+  const callBackSendImageProperties = (imgProps) => {
+    return imgProps
+  }
 
   return (
     <div className="App">
@@ -16,8 +27,8 @@ function App() {
         <h1> Color Extractor</h1>
       </header>
       <div className="App-body">
-        <div className="image-field"><ImageUpload/></div>
-        <div className="color-info">Fancy dandy image details</div>
+        <ImageUpload callBackImageProperties={callBackImageProperties}/>
+        <ImageDetails imgProps={imgProperties}/>
       </div>
     </div>
   );
