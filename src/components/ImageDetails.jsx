@@ -1,4 +1,4 @@
-import React,{Component,useEffect} from 'react'
+import React,{Component} from 'react'
 import DominantColor from './DominantColor'
 import ColorPalette from './ColorPalette'
 import './css/ImageDetails.css'

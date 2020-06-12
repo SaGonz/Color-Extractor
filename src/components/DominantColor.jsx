@@ -3,14 +3,16 @@ import React, {useEffect,useState} from 'react';
 function DominantColor (props) {
 
     const Color = props.imageProps
-    // const [fontColor, setFontColor ] = useState("F5F5F5")
-    
+    var fontColorIs = "#F5F5F5"
+
     if (Color === null) return ''
-    // if(Color.isLight) setFontColor('131213')
+    if(Color.isLight)
+    fontColorIs = "#131213"
+
 
     const bgColor = {
         backgroundColor: props.imageProps.hex,
-        // color: fontColor
+        color: fontColorIs
     } 
 
     return (

@@ -11,15 +11,12 @@ function App() {
   useEffect(() =>{
     document.title = "Color Extractor"
   })
-  //When called, set variable imgProperties
+
+  //This callback function allows the parent component app 
   const callBackImageProperties = (imgProps) => {
     setImgProperties(imgProps)
-    console.log(imgProps)
   }
-  const callBackSendImageProperties = (imgProps) => {
-    return imgProps
-  }
-
+  
   return (
     <div className="App">
       <header className="App-header">
