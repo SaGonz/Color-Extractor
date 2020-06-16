@@ -7,14 +7,16 @@ import ImageDetails from './components/ImageDetails';
 function App() {
 
   const [imgProperties, setImgProperties ] = useState(null)
+  const [imgPropsPalette, setImgPropsPalette] = useState(null)
 
   useEffect(() =>{
     document.title = "Color Extractor"
   })
 
   //This callback function allows the parent component app 
-  const callBackImageProperties = (imgProps) => {
+  const callBackImageProperties = (imgProps, imgPropsTop, imgPropsBottom, imgPropsLeft, imgPropsRight) => {
     setImgProperties(imgProps)
+    setImgPropsPalette([imgPropsTop, imgPropsBottom, imgPropsLeft, imgPropsRight])
   }
   
   return (
@@ -25,7 +27,7 @@ function App() {
       </header>
       <div className="App-body">
         <ImageUpload callBackImageProperties={callBackImageProperties}/>
-        <ImageDetails imgProps={imgProperties}/>
+        <ImageDetails imgProps={imgProperties} imgPropsPalette={imgPropsPalette}/>
       </div>
     </div>
   );

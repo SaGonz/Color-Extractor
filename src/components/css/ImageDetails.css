@@ -12,3 +12,18 @@
 .Details-dominant-color>p {
     margin-top: 5vh;
 }
+.Details-color-palette {
+    height: 85vh;
+    flex-grow: 2;
+    display: flex;
+}
+
+.Details-color-palette>div{
+    height: 85vh;
+    flex-grow: 1;
+    text-align: center;
+    font-size: large;
+}
+.Details-color-palette>div>p{
+    margin-top: 5vh;
+}

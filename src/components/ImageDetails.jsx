@@ -8,7 +8,8 @@ class ImageDetails extends Component {
     constructor (props)  {
         super(props)
         this.state = {
-            imgProps: {}
+            imgProps: {},
+            imgPropsPalette: {}
         }
     }
 
@@ -17,7 +18,7 @@ class ImageDetails extends Component {
         return(
         <div className="Image-details-container">
             <DominantColor imageProps={this.props.imgProps}/>
-            <ColorPalette imageProps={this.props.imgProps}/>
+            <ColorPalette imagePropsPalette={this.props.imgPropsPalette}/>
         </div>)
     }
 }

@@ -8,6 +8,7 @@ function  ImageUpload(props) {
     const ImageUploader = React.useRef(null)
     const [isUploaded, setIsUploaded ] = useState(false)
     const dominantColor = new FastAverageColor()
+    var Color = new FastAverageColor()
 
     //Reads upload as a file, waits for it to load and once it's done calls actions on file and returns it on page.
     //As it's called from <input> element, it browses the device.
@@ -20,8 +21,9 @@ function  ImageUpload(props) {
             current.file = file
             reader.onload = (e) => {
                 current.src = e.target.result
-                console.log('current src upload',current.src)
-                getFilesColors(current)
+                const imgWidth = current.naturalWidth
+                const imgHeight = current.naturalHeight
+                getFilesColors(current, imgWidth, imgHeight)
                 setIsUploaded(true)
             }
             reader.readAsDataURL(file)   
@@ -45,7 +47,6 @@ function  ImageUpload(props) {
             const dragReader = new FileReader()
             const {current} = uploadedImage
             current.file = file
-            console.log('current file ',current.file)
             dragReader.onload = (e) => {
                 current.src = e.target.result
                 getFilesColors(current)
@@ -56,17 +57,34 @@ function  ImageUpload(props) {
     } 
 
     //There's a double call because otherwise the data is not sent:
-    const getFilesColors = (file) => {
-            sendImagePropertiesToRoot(dominantColor.getColorAsync(file, {mode: "precision"})
+    const getFilesColors = (file, width, height) => {
+
+            sendImagePropertiesToRoot(
+                dominantColor.getColorAsync(file, {mode: "precision"},
+                Color.getColorAsync(file,{height: 20}),
+                Color.getColorAsync(file, {top: height - 20, height: 20}),
+                Color.getColorAsync(file, {width: 20}),
+                Color.getColorAsync(file, {left: width - 20, width: 20})
+                )
             .then(() => {
-                sendImagePropertiesToRoot(dominantColor.getColor(file, {mode: "precision"}))
+                sendImagePropertiesToRoot(
+                    dominantColor.getColor(file, {mode: "precision"}),
+                    //Top
+                    Color.getColor(file,{height: 20}),
+                    //Bottom
+                    Color.getColor(file, {top: height - 20, height: 20}),
+                    //Left
+                    Color.getColor(file, {width: 20}),
+                    //Right
+                    Color.getColor(file, {left: width - 20, width: 20})
+                    )
             })
             )
     }
     //When image is loaded into the Client, send the image object definition 
     //to parent component. There it will be sent as a prop to ImageUpload's siblings.
-    const sendImagePropertiesToRoot = (imgProps) => {
-        props.callBackImageProperties(imgProps)
+    const sendImagePropertiesToRoot = (imgProps, imgPropsTop, imgPropsBottom, imgPropsLeft, imgPropsRight) => {
+        props.callBackImageProperties(imgProps, imgPropsTop, imgPropsBottom, imgPropsLeft, imgPropsRight)
     }
 
     return(

@@ -1,7 +1,9 @@
 Color Extractor is a web app with the purpose of extracting an image's dominant color after upload. It's bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Versions
-(Current) 0.1: Upload images, get main color (through fast-average-color npm extension), display it instantly next to the image. 
+0.1: Upload images from device, get main color (through fast-average-color npm extension), display it instantly next to the image. 
+0.2: Upload images from device or by dragging them, get main color (through fast-average-color npm extension), display it instantly next to the image. 
+(Current)0.3: Upload images from device or by dragging them, get main color and secondary colors (through fast-average-color npm extension), display them instantly next to the image. 
 
 ## Available Scripts
 
