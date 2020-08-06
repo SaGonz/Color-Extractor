@@ -1,22 +1,16 @@
 import React from 'react';
+import Color from './Color.jsx'
 
 function DominantColor (props) {
-
-    const Color = props.imageProps
-    var fontColorIs = "#F5F5F5"
-
-    if (Color === null) return ''
-    if(Color.isLight)
-    fontColorIs = "#131213"
-
-
-    const bgColor = {
-        backgroundColor: props.imageProps.hex,
-        color: fontColorIs
-    } 
+    console.log('all props on dominant color',props)
+    console.log('imgprops on dominantcolor',props.imageProps)
+    //Only return content if the props have loaded (image object data)
+    if (props.imageProps === null) return ''
 
     return (
-        <div className="Details-dominant-color" style={bgColor}><p>{props.imageProps.hex}</p></div>
+        <div className="Details-dominant-color">
+            <Color hexCode={props.imageProps}/>
+        </div>
     )
 }
 

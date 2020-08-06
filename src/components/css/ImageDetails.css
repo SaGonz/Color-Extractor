@@ -3,15 +3,11 @@
     width: 90vh;
 }
 .Details-dominant-color {
-    width: 10vh;
-    height: 85vh;
+    display: flex;
     flex-grow: 1;
     text-align: center;
-    font-size: xx-large;
 }
-.Details-dominant-color>p {
-    margin-top: 5vh;
-}
+
 .Details-color-palette {
     height: 85vh;
     flex-grow: 2;
@@ -26,4 +22,8 @@
 }
 .Details-color-palette>div>p{
     margin-top: 5vh;
+}
+.color-Details {
+    margin-top: -3vh;
+    font-size: small;
 }

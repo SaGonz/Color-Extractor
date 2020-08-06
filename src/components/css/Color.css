@@ -1,0 +1,10 @@
+.color-block {
+    height: 85.1vh;
+    flex-grow: 1;
+    text-align: center;
+    font-size: xx-large;
+    display: flex;
+}
+
+
+

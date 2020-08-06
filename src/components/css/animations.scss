@@ -1,0 +1,77 @@
+$red1: #DB0000;
+$red2: #db1600;
+$orange1: #db2c00;
+$orange2: #DB4900;
+$yellow1: #DB7900;
+$yellow2: #DBB300;
+$green1: #71DB00;
+$green2: #04DB00;
+$blue1: #00DBBA;
+$blue2: #008FDB;
+$indigo1: #002CDB;
+$indigo2: #2500DB;
+$purple1: #7500DB;
+$purple2: #B300DB;
+$pink1: #DB0071;
+
+@mixin activateAnimation($name) {
+  animation: $name 5s;
+  -webkit-animation: $name 5s;
+  -moz-animation: $name 5s;
+  -o-animation: $name 5s;
+  -ms-animation: $name 5s;
+}
+
+@mixin fadeIntoBlackMultiple($colorToBlack) {
+  @keyframes fadeIntoBlack {
+    from {
+      color: $colorToBlack;
+    }
+    to {
+      color:rgb(36, 36, 36);
+    }
+  }
+}
+
+
+
+@include fadeIntoBlackMultiple($red1);
+.red-to-black-fade-in { @include activateAnimation(fadeIntoBlack)}
+@include fadeIntoBlackMultiple($red2);
+.red2-to-black-fade-in{ @include activateAnimation(fadeIntoBlack)}
+@include fadeIntoBlackMultiple($orange1);
+.orange-to-black-fade-in{ @include activateAnimation(fadeIntoBlack)}
+@include fadeIntoBlackMultiple($orange2);
+.orange2-to-black-fade-in{ @include activateAnimation(fadeIntoBlack)}
+@include fadeIntoBlackMultiple($yellow1);
+.yellow-to-black-fade-in{ @include activateAnimation(fadeIntoBlack)}
+@include fadeIntoBlackMultiple($yellow2);
+.yellow2-to-black-fade-in{ @include activateAnimation(fadeIntoBlack)}
+@include fadeIntoBlackMultiple($green1);
+.green-to-black-fade-in{ @include activateAnimation(fadeIntoBlack)}
+@include fadeIntoBlackMultiple($green2);
+.green2-to-black-fade-in{ @include activateAnimation(fadeIntoBlack)}
+@include fadeIntoBlackMultiple($blue1);
+.blue-to-black-fade-in{ @include activateAnimation(fadeIntoBlack)}
+@include fadeIntoBlackMultiple($blue2);
+.blue2-to-black-fade-in{ @include activateAnimation(fadeIntoBlack)}
+@include fadeIntoBlackMultiple($indigo1);
+.indigo-to-black-fade-in{ @include activateAnimation(fadeIntoBlack)}
+@include fadeIntoBlackMultiple($indigo2);
+.indigo2-to-black-fade-in{ @include activateAnimation(fadeIntoBlack)}
+@include fadeIntoBlackMultiple($purple1);
+.purple-to-black-fade-in{ @include activateAnimation(fadeIntoBlack)}
+@include fadeIntoBlackMultiple($purple2);
+.purple2-to-black-fade-in{ @include activateAnimation(fadeIntoBlack)}
+@include fadeIntoBlackMultiple($pink1);
+.pink-to-black-fade-in{ @include activateAnimation(fadeIntoBlack)}
+
+
+  // @keyframes fadeIntoColor {
+  //   from {
+  //     color: $color
+  //   }
+  //   to {
+  //     color:rgb(36, 36, 36);
+  //   }
+  // }

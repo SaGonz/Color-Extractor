@@ -1,11 +1,13 @@
 import React from 'react';
+import Color from './Color';
 
 function ColorPalette (props) {
-
+    console.log('imgpropspalette on colorpalette', props.imagePropsPalette)
+    console.log('all props on colorpalette',props)
     //Only display the palette if the palette prop has loaded and all its items have loaded aswell
-    if (props.imagePropsPalette === null) return ''
+    if (props.imagePropsPalette === undefined) return ''
     if (
-        (props.imagePropsPalette[0] === undefined && props.imagePropsPalette[1] === undefined) && 
+        (props.imagePropsPalette[0] === undefined && props.imagePropsPalette[1] === undefined) &&
         (props.imagePropsPalette[2] === undefined && props.imagePropsPalette[3] === undefined) 
         )
         return ''
@@ -17,25 +19,20 @@ function ColorPalette (props) {
         props.imagePropsPalette[2], 
         props.imagePropsPalette[3]
     ]
-    //Push each shade's respective text-color depending on its lightness
-    const textColor = []
-    for( const Color of Palette ) {
-        if (Color.isLight) textColor.push("#131213")
-        else textColor.push("#F5F5F5")
+
+    const addColor = () => {
+
     }
-    
-    //Each object's style 
-    const bgColorTop = { backgroundColor: Palette[0].hex, color: textColor[0] }
-    const bgColorBttm = { backgroundColor: Palette[1].hex, color: textColor[1] }
-    const bgColorLft = { backgroundColor: Palette[2].hex, color: textColor[2] }
-    const bgColorRght = { backgroundColor: Palette[3].hex, color: textColor[3] }
+    const removeColor = () => {
+
+    }
 
     return( 
         <div className="Details-color-palette">
-            <div style={bgColorTop}><p>{Palette[0].hex}</p></div>
-            <div style={bgColorBttm}><p>{Palette[1].hex}</p></div>
-            <div style={bgColorLft}><p>{Palette[2].hex}</p></div>
-            <div style={bgColorRght}><p>{Palette[3].hex}</p></div>
+            <Color hexCode={Palette[0].hex} isColorLight={Palette[0].isLight}/>
+            <Color hexCode={Palette[1].hex} isColorLight={Palette[1].isLight}/>
+            <Color hexCode={Palette[2].hex} isColorLight={Palette[2].isLight}/>
+            <Color hexCode={Palette[3].hex} isColorLight={Palette[3].isLight}/>
         </div>
     )
 }
